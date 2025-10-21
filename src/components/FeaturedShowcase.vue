@@ -1,5 +1,5 @@
 <template>
-  <section class="mx-auto max-w-content px-4 py-16 sm:px-6">
+  <section class="mx-auto max-w-content px-4 py-12 sm:px-6 sm:py-16">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <div>
         <p class="text-sm font-medium text-primary">热门药品精选</p>

@@ -1,12 +1,14 @@
 <template>
   <div class="min-h-screen bg-gradient-to-b from-white/80 via-[#f5fbff] to-[#f0fdf9] pb-16">
-    <header class="mx-auto max-w-content px-4 pt-8 sm:px-6">
-      <div class="flex flex-wrap items-center justify-between gap-4 rounded-full border border-white/70 bg-white/80 px-6 py-4 text-sm text-neutral-600 shadow-sm backdrop-blur">
+    <header class="mx-auto max-w-content px-4 pt-6 sm:px-6 sm:pt-8">
+      <div
+        class="flex flex-col gap-4 rounded-3xl border border-white/70 bg-white/80 px-5 py-4 text-sm text-neutral-600 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:rounded-full sm:px-6"
+      >
         <div class="flex items-center gap-2 font-semibold text-neutral-900">
           <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">药</span>
           <span>原研药目录 · 数据仪表盘</span>
         </div>
-        <div class="flex items-center gap-4 text-xs sm:text-sm">
+        <div class="flex flex-wrap items-center gap-3 text-xs sm:flex-nowrap sm:gap-4 sm:text-sm">
           <a
             href="#"
             class="hidden items-center gap-1 text-neutral-400 transition hover:text-primary sm:inline-flex"
@@ -27,7 +29,7 @@
       </div>
     </header>
 
-    <main class="space-y-16">
+    <main class="space-y-12 sm:space-y-16">
       <HeroSection
         :title="dataset.title"
         :summary="dataset.summary"
@@ -69,7 +71,7 @@
       <button
         v-if="showBackToTop"
         type="button"
-        class="fixed bottom-6 right-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30 transition hover:bg-primary-dark"
+        class="fixed bottom-4 right-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30 transition hover:bg-primary-dark sm:bottom-6 sm:right-6 sm:h-12 sm:w-12"
         @click="scrollToTop"
       >
         ↑

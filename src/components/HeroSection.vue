@@ -8,13 +8,13 @@
     <div
       class="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,#d8f5ee_0,transparent_65%)]"
     ></div>
-    <div class="relative z-10 mx-auto max-w-content px-6 py-16 sm:px-10 sm:py-24">
-      <div class="mb-8 flex flex-wrap items-center gap-4 text-sm text-primary-dark/80">
-        <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 font-medium">
+    <div class="relative z-10 mx-auto max-w-content px-5 py-12 sm:px-10 sm:py-24">
+      <div class="mb-8 flex flex-wrap items-center gap-3 text-xs text-primary-dark/80 sm:gap-4 sm:text-sm">
+        <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 font-medium sm:px-5">
           <span class="h-2 w-2 rounded-full bg-primary"></span>
           最新统计：{{ summary.lastUpdated }}
         </span>
-        <span class="inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 font-medium">
+        <span class="inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 font-medium sm:px-5">
           <span class="h-2 w-2 rounded-full bg-accent"></span>
           数据来源：{{ summary.source }}
         </span>
@@ -23,7 +23,7 @@
         <h1 class="text-4xl font-semibold text-neutral-900 sm:text-5xl">
           {{ title }}
         </h1>
-        <p class="mt-6 text-lg leading-relaxed text-neutral-600 sm:text-xl">
+        <p class="mt-6 text-base leading-relaxed text-neutral-600 sm:text-xl">
           汇集全国常见原研药品资料，覆盖
           <span class="font-semibold text-primary">{{ totalCategories }}</span>
           个临床科室分类，共

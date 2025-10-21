@@ -2,7 +2,7 @@
   <section
     :id="category.slug"
     data-category-section="true"
-    class="mx-auto max-w-content scroll-mt-24 px-4 py-16 sm:px-6"
+    class="mx-auto max-w-content scroll-mt-24 px-4 py-12 sm:px-6 sm:py-16"
   >
     <header class="flex flex-wrap items-end justify-between gap-6">
       <div>
@@ -16,13 +16,17 @@
           可使用搜索框快速定位药品，或按厂家筛选。点击表头可切换排序方向。
         </p>
       </div>
-      <div class="rounded-2xl border border-white/70 bg-white/70 px-4 py-3 text-xs text-neutral-500 shadow-sm">
+      <div
+        class="w-full rounded-2xl border border-white/70 bg-white/70 px-4 py-3 text-xs text-neutral-500 shadow-sm sm:w-auto"
+      >
         匹配结果：<span class="font-semibold text-primary">{{ filteredItems.length }}</span> / {{ category.items.length }}
       </div>
     </header>
 
     <div class="mt-8 grid gap-4 sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-      <label class="relative flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm text-neutral-500 focus-within:border-primary focus-within:text-primary">
+      <label
+        class="relative flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm text-neutral-500 focus-within:border-primary focus-within:text-primary"
+      >
         <span class="mr-3 text-neutral-300">🔍</span>
         <input
           v-model="searchTerm"
@@ -32,7 +36,7 @@
         />
       </label>
 
-      <div class="flex flex-wrap justify-end gap-2">
+      <div class="flex flex-wrap gap-2 sm:justify-end">
         <select
           v-model="selectedManufacturer"
           class="h-10 min-w-[160px] rounded-full border border-neutral-200 bg-white px-4 text-sm text-neutral-600 transition focus:border-primary focus:text-primary-dark"
@@ -64,7 +68,7 @@
     </div>
 
     <div class="mt-8 overflow-hidden rounded-3xl border border-white/70 bg-white/90 shadow-sm">
-      <div class="max-h-[520px] overflow-y-auto">
+      <div class="hidden max-h-[520px] overflow-y-auto sm:block">
         <table class="min-w-full divide-y divide-neutral-100 text-left text-sm text-neutral-700">
           <thead class="sticky top-0 z-10 bg-white/95 text-xs font-medium uppercase tracking-wide text-neutral-400 backdrop-blur">
             <tr>
@@ -109,6 +113,39 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="divide-y divide-neutral-100 sm:hidden">
+        <article
+          v-for="item in filteredItems"
+          :key="item.brandName + item.genericName"
+          class="flex gap-4 p-4 odd:bg-white even:bg-neutral-50/70"
+        >
+          <img
+            :src="item.image"
+            :alt="`${item.brandName} - ${item.genericName}`"
+            loading="lazy"
+            class="h-20 w-24 flex-shrink-0 rounded-xl object-cover shadow-sm ring-1 ring-white/60"
+          />
+          <div class="flex flex-1 flex-col gap-3">
+            <div>
+              <h3 class="text-base font-semibold text-neutral-900">
+                {{ item.brandName }}
+              </h3>
+              <p class="mt-1 text-sm text-primary-dark">
+                {{ item.genericName }}
+              </p>
+            </div>
+            <dl class="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 text-xs text-neutral-500">
+              <dt class="font-medium text-neutral-600">厂家简称</dt>
+              <dd class="text-neutral-700">{{ item.manufacturerShort }}</dd>
+              <dt class="font-medium text-neutral-600">厂家全称</dt>
+              <dd class="leading-relaxed text-neutral-700">{{ item.manufacturerFull }}</dd>
+            </dl>
+          </div>
+        </article>
+        <div v-if="filteredItems.length === 0" class="px-4 py-12 text-center text-neutral-400">
+          未找到匹配药品，请调整搜索条件。
+        </div>
       </div>
     </div>
   </section>
